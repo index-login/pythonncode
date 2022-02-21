@@ -7,4 +7,4 @@ venv
 *.iml
 out
 gen
-!/.gitignore
+
