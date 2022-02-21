@@ -3,6 +3,7 @@ shuzi_wei={0:'shi',1:'bai',2:'qian',3:'wan',4:'yi'}
 shuzi=input()
 number=list()
 def dushu(wei):
+    #四位数进行读数
     wei=list(wei)
     for _ in range(len(wei)):
         if number:
@@ -36,10 +37,12 @@ if n > 4:
         dushu(shuzi[n-8:n-4])
         number.append(shuzi_wei[3])
         dushu(shuzi[n-4:])
+        #亿以上的读法
     else:
         dushu(shuzi[:n-4])
         number.append(shuzi_wei[3])
         dushu(shuzi[n-4:])
+        #万以上的读法
 else:
     dushu(shuzi)
-print(number)
+print(" ".join(number))
