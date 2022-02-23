@@ -24,10 +24,9 @@ mamad
 #dmamammaa  mama dmmaa
 
 def is_h(list1):
-    list1=list(list1)
     count=set([ (list1[i],list1.count(list1[i])) for i in range(len(list1))])
     l=0
-    print(count)
+    #print(count)
     if len(list1) % 2==1:
         '''字符串是奇数就不能出现奇数的字符
            偶数则就不能出现两次奇数的字符        
@@ -43,4 +42,28 @@ def is_h(list1):
                 return False
     return True
 
-#print(is_h("mamad"))
+n=int(input())
+if n%2==0:
+    """
+    奇数需要再加一次循环
+    """
+    n//=2
+else:
+    n//=2
+    n+=1
+str1=list(input().strip())
+setup=0
+templist=list()
+zhong=list()
+if is_h(str1):
+    for i in range(n):
+        if str1.count(str1[i]) != 1:  #判断出现找不到配对的字符
+            s=str1[::-1].index(str1[i])   #采用列表倒序查找配对字符 第几个就是需要几步
+            setup+=s
+            templist.append(str1.pop(len(str1) - s - 1))
+        else:
+            setup+=n//2 -i+1
+            zhong.append(str1.pop(i))
+result = str1 + zhong + templist[::-1]
+print("".join(result))
+print(setup)
