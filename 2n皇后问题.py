@@ -68,22 +68,11 @@
 # n=sol().solven(4)
 
 
-# def solve(n):
-#     def DFS(result,queen,xy_dif,xy_sum):
-#         p=len(queen)
-#         if p==n:
-#             result.append(queen)
-#             return None
-#         for q in range(n):
-#             if q not in queen and p-q not in xy_dif and p+q not in xy_sum:
-#                 DFS(result,queen+[q],xy_dif+[p-q],xy_sum[p+q])
-#     result=[]
-#     DFS(result,[],[],[])
-#     return [ ["." *i + "Q" + "." * (n-i-1) for i in sol] for sol in result]
-
-def solveNQueens(self, n):
-    def DFS(valid_configs, queens, yx_diffs, yx_sums):
-        """`valid_configs` contains configurations of n queens that satisfy
+def solve(n):
+    """
+    :param n:  n方阵
+    :return:   皇后结果
+            `valid_configs` contains configurations of n queens that satisfy
         threat constraints.
 
         Each element in `queens` represents the position of a queen.
@@ -114,20 +103,19 @@ def solveNQueens(self, n):
         r  ------------
           c  0  1  2  3
         """
-        row_idx = len(queens)
 
-        if row_idx == n:
-            valid_configs.append(queens)
-            return
 
-        for col_idx in range(n):
-             if not col_idx in queens and not row_idx - col_idx in yx_diffs and not row_idx + col_idx in yx_sums:
-                DFS(valid_configs, queens + [col_idx], yx_diffs + [row_idx - col_idx],yx_sums + [row_idx + col_idx])
+    def DFS(result,queen,xy_dif,xy_sum):
+        p=len(queen)
+        if p==n:
+            result.append(queen)
+            return None
+        for q in range(n):
+            if q not in queen and p-q not in xy_dif and p+q not in xy_sum:
+                DFS(result,queen+[q],xy_dif+[p-q],xy_sum+[p+q])
+    result=[]
+    DFS(result,[],[],[])
+    return [ ["." *i + "Q" + "." * (n-i-1) for i in sol] for sol in result]
 
-#  0 q=[0] []
 
-    result = []
-    DFS(result, [], [], [])
-    #return [["." * i + "Q" + "." * (n - i - 1) for i in sol] for sol in result]
-    return [result,queue,]
-print(solveNQueens(3,4))
+print(solve(4))
