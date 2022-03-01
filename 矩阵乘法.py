@@ -44,4 +44,7 @@ if m>2:
 else:
     result1=j(r)
 
-print(result1)
+for i in result1:
+    for t in i:
+        print(t,end=' ')
+    print()
