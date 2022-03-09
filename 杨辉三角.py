@@ -21,8 +21,8 @@ def les(num):
             n=[1]+[n[i]+n[i+1] for i in range(len(n)-1)]+[1]
             num-=1
         return n
-# for i in range(int(input())):
-#     print(les(i+1))
+for i in range(int(input())):
+    print(les(i+1))
 
 def s(num):
     print("1")
@@ -34,4 +34,16 @@ def s(num):
             print(n[i],end=' ')
         print()
         num-=1
-s(5)
+#les(5)
+
+#2021真题
+# def yh(num):
+#     if num==1:
+#         print("1")
+#     n=[]
+#     while num >1:
+#         n=[1]+[n[i]+n[i+1] for i in range(len(n)-1)]+[1]
+#         for i in n:
+#             print("i",end=' ')
+#         print()
+#         num-=1
