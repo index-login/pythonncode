@@ -11,7 +11,7 @@
 
  可能有以下 3 种（这里只列出 3 种，并不是全部）不同的“左孩子右兄弟’ ' 表示：
 """
-
+n=int(input())
 def tree_input(num):
     tree=[[] for _ in range(num+1)]
     for i in range(2,num+1):
@@ -19,9 +19,9 @@ def tree_input(num):
     return tree
 Tree=tree_input(n)
 def dfs(x):
-    size=len(Tree[x])
-    ans=0
-    for i in range(size):
-        ans=max(ans,dfs(Tree[x][i]))
-    return ans+size
+    size=len(Tree[x])  #当前节点的孩子数量
+    ans=0              #表示孩子节点的最大层数
+    for i in range(size):  #对根的每个孩子节点进行操作
+        ans=max(ans,dfs(Tree[x][i]))  #操作是把每个孩子节点当成根节点来看
+    return ans+size  #返回的是孩子节点最大层数，加上兄弟节点就是根节点最大层数
 print(dfs(1))
