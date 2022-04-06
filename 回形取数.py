@@ -41,8 +41,8 @@
 #9 6 3
 #
 def numturn(list1):
-    b=len(list1)
-    chang=len(list1[0])
+    b=len(list1) #行
+    chang=len(list1[0])  #列
     new=[[list1[y][x] for y in range(b-1,-1,-1)] for x in range(chang)]
     return new
 
