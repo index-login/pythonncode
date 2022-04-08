@@ -36,16 +36,29 @@
 #     print(tmp[i], end=' ')
 
 
+#输入
+#行 列
+#3  3
+# 1 2 3
+# 4 5 6
+# 7 8 9
+
 #
 #8 5 2
 #9 6 3
 #
 def numturn(list1):
+    """
+    二维数组顺时针旋转90°
+    :param list1:
+    :return: list
+    """
     b=len(list1) #行
     chang=len(list1[0])  #列
     new=[[list1[y][x] for y in range(b-1,-1,-1)] for x in range(chang)]
     return new
 
+# print(numturn([[8,5,2],[9,6,3]]))
 
 if __name__ == '__main__':
     h,c=map(int,input().split())

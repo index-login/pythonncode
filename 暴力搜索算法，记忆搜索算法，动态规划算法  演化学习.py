@@ -137,6 +137,38 @@ def m2(aim,l):
     return dp[wow-1][aim]  #最后就是顶部，最后剩余aim钱时
 
 
+"""
+
+def coins4(arr, aim):
+    if arr == None or len(arr) == 0 or aim < 0:
+        return 0
+    row = len(arr)
+    dp = [[0 for i in range(aim+1)] for j in range(row)]
+    for i in range(row):
+        dp[i][0] = 1
+    for j in range(1, aim//arr[0]+1):
+        dp[0][arr[0]*j] = 1
+    for i in range(1,row):
+        for j in range(1, aim+1):
+            dp[i][j] = dp[i-1][j]
+            dp[i][j] += dp[i][j-arr[i]] if j-arr[i] >= 0 else 0
+    return dp[row-1][aim]
+
+
+
+#动态规划升级版+空间压缩 
+def coins5(arr, aim):
+    if arr == None or len(arr) == 0 or aim < 0:
+        return 0
+    dp = [0 for i in range(aim+1)]
+    for i in range(aim//arr[0]+1):
+        dp[arr[0]*i] = 1
+    for i in range(len(arr)):
+        for j in range(1, aim+1):
+            dp[j] += dp[j-arr[i]] if j-arr[i] >= 0 else 0
+    return dp[aim]
+"""
+
 print(m2(mo,a))
 # print(m1(mo,0,a))
 # print(len(zong))

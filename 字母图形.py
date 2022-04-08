@@ -1,3 +1,12 @@
+"""
+['A', 'B', 'C', 'D', 'E']
+['B', 'A', 'B', 'C', 'D']
+['C', 'B', 'A', 'B', 'C']
+['D', 'C', 'B', 'A', 'B']
+['E', 'D', 'C', 'B', 'A']
+
+"""
+
 def ans(n,m):
     g=[chr(65+i) for i in range(m)]
     for i in range(n):
